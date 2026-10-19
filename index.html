@@ -1,13 +1,58 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Workflow Board</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Kanban Workflow Board</h1>
+        <p>Track project progress and identify bottlenecks</p>
+    </header>
+
+    <main>
+        <section class="summary">
+            <h2>Project Progress</h2>
+            <p id="progressText">0% completed</p>
+            <progress id="progressBar" value="0" max="100"></progress>
+        </section>
+
+        <section class="add-task">
+            <h2>Add New Task</h2>
+            <form id="taskForm">
+                <input id="taskInput" type="text"
+                    placeholder="Enter task name" required>
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+
+        <section id="bottleneckArea" aria-live="polite"></section>
+
+        <section class="board" id="board">
+            <div class="column" data-status="To Do">
+                <h2>To Do <span class="count">0</span></h2>
+                <div class="tasks"></div>
+            </div>
+
+            <div class="column" data-status="In Progress">
+                <h2>In Progress <span class="count">0</span></h2>
+                <div class="tasks"></div>
+            </div>
+
+            <div class="column" data-status="Testing">
+                <h2>Testing <span class="count">0</span></h2>
+                <div class="tasks"></div>
+            </div>
+
+            <div class="column" data-status="Done">
+                <h2>Done <span class="count">0</span></h2>
+                <div class="tasks"></div>
+            </div>
+        </section>
+    </main>
+</body>
 </html>
